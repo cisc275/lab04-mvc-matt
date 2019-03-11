@@ -26,7 +26,7 @@ public class Model {
     int yIncr = 2;
     
     JFrame frame;
-	
+	//Constructor, Initilizes model frame
 	public Model(int w, int h, int IMw, int IMh){
 		width = w;
 		height = h;
@@ -39,7 +39,7 @@ public class Model {
     	frame.setSize(View.frameWidth, View.frameHeight);
     	frame.setVisible(true);
 	}
-	
+	//Updates the direction
 	public void updateDirection() {
     	if (xIncr == 0 & yIncr == 0) {
     		System.out.println("We're not ready for this yet");
@@ -69,7 +69,7 @@ public class Model {
     		d = Direction.NORTHWEST;
     	}
     }
-	
+	//Updates the location and checks for collisions
 	public void updateLocation() {
 		xCoord += xIncr;
 		yCoord += yIncr;
@@ -86,20 +86,21 @@ public class Model {
     		yIncr = yIncr * -1;
     	}
 	}
-	
+	//Updates the frame, location, and direction
 	public void updateLocationAndDirection() {
 		updateDirection();
 		frame.repaint();
 		updateLocation();
 	}
-	
+	//returns X coord
 	public int getX() {
 		return xCoord;
 	}
-	
+	//returns Y coord
 	public int getY() {
 		return yCoord;
 	}
+	//returns the direction
 	public Direction getDirect() {
 		return d;
 	}

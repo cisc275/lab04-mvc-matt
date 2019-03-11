@@ -32,6 +32,7 @@ public class View extends JPanel{
     static int xloc;
     static int yloc;
     
+    //Chooses an animation based on the direction
     public void chooseAnimation(Direction dir) {	
     	if (dir.getName().equals("southeast")) {
 			animNum = 0;
@@ -59,26 +60,28 @@ public class View extends JPanel{
     	}
     }
     
-    //Override this JPanel's paint method to cycle through picture array and draw images
+    //Cycles through picture array and draw images
     public void paint(Graphics g) {
     	picNum = (picNum + 1) % frameCount;
     	g.drawImage(pics[animNum][picNum], View.xloc, View.yloc, Color.gray, this);
     }
-    
-    
+    //returns the width
 	public int getWidth() {
 		return frameWidth;
 	}
+	//returns the height
 	public int getHeight() {
 		return frameHeight;
 	}
+	//returns the image width
 	public int getImageWidth() {
 		return imgWidth;
 	}
+	//returns the image height
 	public int getImageHeight() {
 		return imgHeight;
 	}
-	
+	//updates the image and runs the slow down method
 	public void update(int x, int y, Direction d) {
 		chooseAnimation(d);
 		xloc = x;
